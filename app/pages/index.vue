@@ -1,3 +1,3 @@
 <template>
-  <h1>Welcome to My App</h1>
+  <h1>Welcome to Rohan Automotive</h1>
 </template>
