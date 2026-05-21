@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   nitro: {
     output: {
       dir: "dist",
-      publicDir: "/",
+      publicDir: "public",
     },
   },
 });
