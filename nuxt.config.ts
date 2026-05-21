@@ -4,4 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
+  nitro: {
+    output: {
+      dir: "dist",
+      publicDir: "dist/public",
+    },
+  },
 });
