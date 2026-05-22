@@ -1,0 +1,15 @@
+export enum CarBodyType {
+  HATCHBACK = "hatchback",
+  BUGGY = "buggy",
+  CONVERTIBLE = "convertible",
+  COUPE = "coupe",
+  COUPE_SUV = "coupeSuv",
+  CROSSOVER = "crossover",
+  FASTBACK = "fastback",
+  SEDAN = "sedan",
+  STATION = "station",
+  MINIVAN = "minivan",
+  ROADSTER = "roadster",
+  PICKUP_TRUCK = "pickupTruck",
+  SUV = "suv",
+}
