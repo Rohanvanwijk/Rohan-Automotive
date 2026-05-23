@@ -1,3 +1,4 @@
+import { BrandModel } from "./brandModel";
 import { CarBodyType } from "./carBodytype";
 import { Drivetrain } from "./drivetrain";
 
@@ -13,4 +14,5 @@ export type Car = {
   horsepower: number;
   torque: number;
   text: string;
+  brandModel: BrandModel;
 };
