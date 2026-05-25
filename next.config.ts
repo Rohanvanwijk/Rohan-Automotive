@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "**.graphassets.com",
       },
+      {
+        protocol: "https",
+        hostname: "**.cdn.pxr.nl",
+      },
     ],
   },
 };

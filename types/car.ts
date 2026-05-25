@@ -2,6 +2,7 @@ import { BrandModel } from "./brandModel";
 import { CarBodyType } from "./carBodytype";
 import { Drivetrain } from "./drivetrain";
 import { HeroImage } from "./heroImage";
+import { ImageModel } from "./imageModel";
 
 export type Car = {
   id: string;
@@ -14,7 +15,8 @@ export type Car = {
   drivetrain: Drivetrain;
   horsepower: number;
   torque: number;
-  text: string;
+  text?: string;
   brandModel: BrandModel;
   heroImage?: HeroImage;
+  gallery?: [ImageModel];
 };

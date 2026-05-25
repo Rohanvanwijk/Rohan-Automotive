@@ -4,7 +4,6 @@ import { getDrivetrainLabel } from "@/utils/label";
 export default function Card(props: {
   id: string;
   title: string;
-  description: string;
   imageUrl?: string;
   slug: string;
   horsepower: number;
