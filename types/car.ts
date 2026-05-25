@@ -1,6 +1,7 @@
 import { BrandModel } from "./brandModel";
 import { CarBodyType } from "./carBodytype";
 import { Drivetrain } from "./drivetrain";
+import { HeroImage } from "./heroImage";
 
 export type Car = {
   id: string;
@@ -15,4 +16,5 @@ export type Car = {
   torque: number;
   text: string;
   brandModel: BrandModel;
+  heroImage?: HeroImage;
 };
