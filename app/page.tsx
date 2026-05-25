@@ -47,7 +47,6 @@ export default async function Home() {
             <Card
               id={car.id}
               title={car.name}
-              description={car.text}
               imageUrl={car.heroImage?.url}
               slug={car.slug}
               horsepower={car.horsepower}
