@@ -1,9 +1,15 @@
 import Link from "next/link";
-import { Car } from "../types/car";
+import { Car } from "@/types/car";
 import Card from "@/components/Card";
 import HeaderTitle from "@/components/HeaderTitle";
 
-export default async function Home() {
+export default async function MakeDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = await params;
+
   const NEXT_HYGRAPH_ENDPOINT = process.env.NEXT_HYGRAPH_ENDPOINT;
 
   const res = await fetch(NEXT_HYGRAPH_ENDPOINT!, {
@@ -14,7 +20,7 @@ export default async function Home() {
     body: JSON.stringify({
       query: `
         query {
-          cars {
+          cars(where: {brandModel: {slug: "${slug}"}}) {
             id
             name
             slug
@@ -33,23 +39,24 @@ export default async function Home() {
       `,
     }),
   });
-
-  const data = await res.json();
+  const { data } = await res.json();
+  if (!data.cars.length) {
+    return <h1>Make not found</h1>;
+  }
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-black">
-      <HeaderTitle title="Rohan Automotive" />
+      <HeaderTitle title={data.cars[0].brandModel.name} />
       <main className="flex flex-1 w-full max-w-7xl flex-col items-center py-6 px-4 bg-white dark:bg-black sm:items-start">
         <div className="mb-8">
           <Link
+            className="underline text-blue-500 hover:text-blue-700"
             href="/make"
-            className="text-underline text-blue-500 hover:text-blue-700 ml-4"
           >
-            View Makes
+            Back to Makes
           </Link>
         </div>
-
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {data.data.cars.map((car: Car) => (
+          {data.cars.map((car: Car) => (
             <Card
               id={car.id}
               title={car.name}
